@@ -21,7 +21,7 @@ Connect this GitHub repo in **Workers & Pages → Create → Import a repository
 
 | Setting | Value |
 | --- | --- |
-| Build command | `npm run build` |
+| Build command | leave empty |
 | Deploy command | `npx wrangler deploy` |
 | Node | `22` (set build variable `NODE_VERSION` to `22`) |
 

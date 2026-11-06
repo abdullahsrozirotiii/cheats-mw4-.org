@@ -8,13 +8,15 @@ In the Cloudflare dashboard: **Workers & Pages → Create → Import a repositor
 
 | Setting | Value |
 | --- | --- |
-| Build command | `npm run build` |
+| Build command | leave empty |
 | Deploy command | `npx wrangler deploy` |
 | Preview command | `npx wrangler preview` |
 | Root directory | repository root |
 | Build variable | `NODE_VERSION` = `22` |
 
 Wrangler is a devDependency, so Workers Builds uses that version. Build output is `dist` (set in `wrangler.jsonc`, not as a separate “output directory” field).
+
+Workers Builds installs dependencies and then runs only the deploy command. `postinstall` sees `WORKERS_CI=1` and runs `npm run build`, so `dist` exists before `npx wrangler deploy`. Leave the dashboard Build command empty. If it is also set to `npm run build`, the site is built twice.
 
 After the first successful deploy, open the Worker → **Deployments**. Each later push to `main` adds a row with the full build log. Non-production branches get preview builds when preview builds are enabled.
 
