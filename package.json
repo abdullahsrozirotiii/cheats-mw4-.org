@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "typescript": "^5.9.2",
-    "wrangler": "^4.158.0"
+    "wrangler": "^4.158.0",
+    "@emnapi/runtime": "1.11.3"
   }
 }
