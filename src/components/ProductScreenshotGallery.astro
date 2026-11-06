@@ -1,0 +1,183 @@
+---
+import type { ProductSlide } from '../data/products';
+import ResponsiveImage from './ResponsiveImage.astro';
+import { DEFAULT_IMAGE_WIDTHS, THUMB_IMAGE_WIDTHS, defaultWebpSrc, responsiveSrcSet } from '../utils/responsiveImage';
+import { Badge } from '@/components/starwind/badge';
+
+interface Props {
+  images: ProductSlide[];
+  id?: string;
+}
+
+const { images, id = 'product-screenshots' } = Astro.props;
+const hasThumbs = images.length > 1;
+const first = images[0];
+---
+
+<div
+  class:list={['product-gallery', !hasThumbs && 'product-gallery--single']}
+  id={id}
+  data-product-gallery
+>
+  <div class="relative min-w-0 overflow-hidden rounded-xl border border-border bg-muted/20">
+    <div class="product-gallery__main cursor-zoom-in overflow-hidden">
+      {
+        first && (
+          <ResponsiveImage
+            src={first.src}
+            alt={first.alt}
+            width={960}
+            height={540}
+            loading="eager"
+            fetchPriority="high"
+            sizes="(min-width: 1024px) 640px, 100vw"
+            useDirectSrc={first.directSrc}
+            class="product-gallery__image aspect-video w-full object-cover"
+          />
+        )
+      }
+    </div>
+    <Badge
+      tone="neutral"
+      appearance="frosted"
+      size="sm"
+      class="pointer-events-none absolute bottom-3 left-3 shadow-sm"
+    >
+      Screenshot from the build
+    </Badge>
+  </div>
+
+  {
+    hasThumbs && (
+      <div class="product-gallery__thumbs" role="tablist" aria-label="Product screenshots">
+        {images.map((img, i) => (
+          <button
+            type="button"
+            class:list={['product-gallery__thumb', i === 0 && 'is-active']}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-label={`Screenshot ${i + 1}`}
+            data-product-gallery-thumb
+            data-index={i}
+            data-full-src={img.src}
+            data-full-alt={img.alt}
+            data-direct-src={img.directSrc ? 'true' : 'false'}
+            data-full-srcset={img.directSrc ? '' : responsiveSrcSet(img.src, DEFAULT_IMAGE_WIDTHS)}
+            data-default-img-src={img.directSrc ? img.src : defaultWebpSrc(img.src, DEFAULT_IMAGE_WIDTHS)}
+          >
+            <ResponsiveImage
+              src={img.src}
+              alt=""
+              width={320}
+              height={180}
+              widths={THUMB_IMAGE_WIDTHS}
+              loading="lazy"
+              sizes="148px"
+              useDirectSrc={img.directSrc}
+              class="size-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
+    )
+  }
+</div>
+
+<script>
+  const AUTO_MS = 4800;
+
+  const initProductGalleries = () => {
+    document.querySelectorAll('[data-product-gallery]').forEach((root) => {
+      if (root.hasAttribute('data-gallery-bound')) return;
+
+      const main = root.querySelector('.product-gallery__image');
+      const picture = root.querySelector('.product-gallery__main picture');
+      const thumbs = [...root.querySelectorAll('[data-product-gallery-thumb]')];
+      if (!main || !picture || thumbs.length < 2) return;
+
+      root.setAttribute('data-gallery-bound', '');
+
+      let idx = 0;
+      let timer = 0;
+
+      const getOrCreateWebpSource = () => {
+        let s = picture.querySelector('source[type="image/webp"]');
+        if (!s) {
+          s = document.createElement('source');
+          s.type = 'image/webp';
+          s.setAttribute('sizes', '(min-width: 1024px) 640px, 100vw');
+          picture.insertBefore(s, main);
+        }
+        return s;
+      };
+
+      const applyThumbData = (thumb) => {
+        const fullAlt = thumb.getAttribute('data-full-alt') || '';
+        const direct = thumb.getAttribute('data-direct-src') === 'true';
+        const fullSrcset = thumb.getAttribute('data-full-srcset') || '';
+        const defaultImg = thumb.getAttribute('data-default-img-src') || '';
+
+        main.alt = fullAlt;
+        main.src = defaultImg;
+
+        if (direct) {
+          main.removeAttribute('srcset');
+          const wp = picture.querySelector('source[type="image/webp"]');
+          wp?.remove();
+        } else {
+          const s = getOrCreateWebpSource();
+          s.setAttribute('srcset', fullSrcset);
+          s.setAttribute('sizes', '(min-width: 1024px) 640px, 100vw');
+          main.setAttribute('srcset', fullSrcset);
+          main.setAttribute('sizes', '(min-width: 1024px) 640px, 100vw');
+        }
+      };
+
+      const setSlide = (next) => {
+        idx = ((next % thumbs.length) + thumbs.length) % thumbs.length;
+        applyThumbData(thumbs[idx]);
+        thumbs.forEach((t, j) => {
+          const active = j === idx;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+      };
+
+      const stop = () => {
+        if (timer) window.clearInterval(timer);
+        timer = 0;
+      };
+
+      const start = () => {
+        stop();
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        timer = window.setInterval(() => setSlide(idx + 1), AUTO_MS);
+      };
+
+      thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => {
+          setSlide(i);
+          start();
+        });
+      });
+
+      const motionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const onMotion = () => {
+        if (motionMq.matches) stop();
+        else start();
+      };
+      motionMq.addEventListener?.('change', onMotion);
+
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      root.addEventListener('focusin', stop);
+      root.addEventListener('focusout', start);
+
+      setSlide(0);
+      start();
+    });
+  };
+
+  initProductGalleries();
+  document.addEventListener('astro:after-swap', initProductGalleries);
+</script>

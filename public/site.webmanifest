@@ -1,0 +1,19 @@
+{
+  "name": "CheatsMW4",
+  "short_name": "CheatsMW4",
+  "description": "Modern Warfare 4 guides, tier comparisons, and utilities for PC players.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0d10",
+  "theme_color": "#7f3dee",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/logo-mw4.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
