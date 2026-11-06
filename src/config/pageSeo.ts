@@ -10,9 +10,9 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'MW4 Cheats – Modern Warfare 4 Aimbot, ESP & Radar',
+    title: 'MW4 Cheats – Aimbot, ESP, and Radar for PC players',
     description:
-      'MW4 cheat software with soft aim, player ESP, wallhack, 2D radar, triggerbot, and separate 6v6 / DMZ configs—Cloud DMA unlocks the full module list on supported PC builds.',
+      'MW4 cheats for PC with soft aim, player ESP, wallhack, 2D radar, triggerbot, and separate 6v6 or DMZ configs on supported builds.',
   },
   '/products/dota-2-cheats/': {
     title: 'MW4 Cheats & Utilities | Products — CheatsMW4',
@@ -45,19 +45,19 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'When to use each MW4 utility: hardware recovery, appeal paperwork, or local cosmetic preview—links to the full product pages.',
   },
   '/blog/': {
-    title: 'MW4 Cheat Guides & Patch Notes | CheatsMW4',
+    title: 'Blog – MW4 guides, patch notes, and PC setup tips.',
     description:
-      'Informational guides for MW4 cheats on PC: ESP setup, aim settings, Lite vs Pro, Ricochet patch checks, and loadouts.',
+      'Blog with informational PC guides covering ESP setup, aim settings, Lite versus Pro, Ricochet patch checks, and loadout notes.',
   },
   '/forum/': {
-    title: 'MW4 Cheats Forum | Guides & Patch Talk',
+    title: 'Forum – Read MW4 discussions tied to our guides here',
     description:
-      'Read MW4 cheat discussions tied to our guides: ESP, aim curves, Lite vs Pro, patch day, and HWID recovery.',
+      'Forum for MW4 discussions tied to the guides: ESP, aim curves, Lite versus Pro, patch day, and HWID recovery notes for players.',
   },
   '/faq/': {
-    title: 'MW4 Cheats FAQ | Tiers, Setup & Checkout',
+    title: 'FAQ – Tiers, setup, checkout, and PC platform help',
     description:
-      'FAQ for MW4 cheats: Lite vs Pro vs Elite, ESP vs aim modules, PC platforms, license moves, and partner checkout.',
+      'FAQ covering Lite versus Pro versus Elite, ESP and aim modules, PC platforms, license moves, and partner checkout steps.',
   },
   '/terms/': {
     title: 'Terms & Conditions | CheatsMW4',
@@ -65,12 +65,12 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Terms for using cheatsmw4.org and buying MW4 cheats or utilities through partner checkout, including enforcement risk.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | CheatsMW4',
+    title: 'Privacy Policy – Analytics, cookies, and support data',
     description:
-      'How cheatsmw4.org handles analytics, cookies, and support messages. Card data stays on the partner checkout, not this site.',
+      'Privacy Policy: How cheatsmw4.org handles analytics, cookies, and support messages. Card data stays on the partner checkout, not this site.',
   },
   '/about/': {
-    title: 'About CheatsMW4 | MW4 Cheats & Guides',
+    title: 'Guides – About CheatsMW4, PC setup, and utilities.',
     description:
       'CheatsMW4 publishes Modern Warfare 4 cheat comparisons, PC setup guides, and utility pages for players evaluating a purchase.',
   },

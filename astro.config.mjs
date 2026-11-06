@@ -1,10 +1,17 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import { loadEnv } from 'vite';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
+const env = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
+const site = (process.env.PUBLIC_SITE_ORIGIN || env.PUBLIC_SITE_ORIGIN || 'https://cheatsmw4.org').replace(
+  /\/$/,
+  '',
+);
+
 export default defineConfig({
-  site: 'https://cheatsmw4.org',
+  site,
   trailingSlash: 'always',
   redirects: {
     '/cheats/': '/products/dota-2-cheats/',

@@ -2,7 +2,8 @@ import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
 import { getPageSeoEntry } from './pageSeo';
 
-export const SITE_ORIGIN = `https://${t.site.domain}`;
+const configuredOrigin = import.meta.env.PUBLIC_SITE_ORIGIN as string | undefined;
+export const SITE_ORIGIN = (configuredOrigin || `https://${t.site.domain}`).replace(/\/$/, '');
 
 export const DEFAULT_OG_IMAGE = '/images/blog-home/hero-slide-mw4-main.webp';
 

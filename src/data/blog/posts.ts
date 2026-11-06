@@ -9,7 +9,7 @@ export const blogPosts: BlogPostFull[] = [
     title: 'I tested a new MW4 cheat client—is it worth it?',
     slug: 'mw4-cheat-client-worth-it',
     image: '/images/blog-home/mw4-cheat-client-worth-it.webp',
-    desc: 'What to verify before buying any MW4 loader: stability, module list, and how vendors handle Ricochet downtime.',
+    desc: 'Cheat client: what to verify before buying any MW4 loader, including stability, the module list, and how vendors handle Ricochet downtime.',
     date: 'Nov 7, 2025',
     readTime: '8 min read',
     featured: true,
@@ -45,7 +45,7 @@ export const blogPosts: BlogPostFull[] = [
     title: 'PC vs console for MW4: what competitive players choose',
     slug: 'mw4-console-vs-pc',
     image: '/images/blog-home/mw4-console-vs-pc.webp',
-    desc: 'Input, FOV, and update cadence differences—why our guides focus on PC Steam and Battle.net.',
+    desc: 'MW4: input, FOV, and update cadence differences, and why these guides focus on PC Steam and Battle.net clients only now.',
     date: 'Nov 6, 2025',
     readTime: '6 min read',
     body: [
@@ -64,7 +64,7 @@ export const blogPosts: BlogPostFull[] = [
     title: 'Campaign and Spec Ops: spoiler-safe difficulty tips',
     slug: 'mw4-campaign-tips',
     image: '/images/blog-home/mw4-campaign-tips.webp',
-    desc: 'Approach encounters without spoiling story beats—useful before jumping back into multiplayer.',
+    desc: 'Campaign: approach encounters without spoiling story beats, then use the same habits when you jump back into multiplayer matches.',
     date: 'Nov 5, 2025',
     readTime: '5 min read',
     body: [
@@ -75,6 +75,10 @@ export const blogPosts: BlogPostFull[] = [
       {
         type: 'p',
         text: `Use campaign time to dial **audio settings**—footsteps matter there too, and cleaner EQ helps when you bring the same headset to [multiplayer loadouts](/blog/mw4-multiplayer-loadouts/).`,
+      },
+      {
+        type: 'p',
+        text: `Treat the campaign as a settings pass: note which difficulty and audio mix you can track, then keep that mix when you return to multiplayer.`,
       },
     ],
   },

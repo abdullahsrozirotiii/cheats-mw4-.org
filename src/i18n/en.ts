@@ -8,9 +8,9 @@ export const en: Translations = {
   site: {
     name: 'CheatsMW4',
     domain: 'cheatsmw4.org',
-    title: 'MW4 Cheats – Modern Warfare 4 Aimbot, ESP & Radar',
+    title: 'MW4 Cheats – Aimbot, ESP, and Radar for PC players',
     description:
-      'MW4 cheat software with soft aim, player ESP, wallhack, 2D radar, triggerbot, and separate 6v6 / DMZ configs—Cloud DMA unlocks the full module list on supported PC builds.',
+      'MW4 cheats for PC with soft aim, player ESP, wallhack, 2D radar, triggerbot, and separate 6v6 or DMZ configs on supported builds.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
@@ -290,7 +290,7 @@ export const en: Translations = {
     eyebrow: 'Blog',
     title: 'Guides and updates',
     subtitle: 'MW4 setup, Ricochet patch checks, loadouts, and tier comparisons for PC players.',
-    latestTitle: 'MW4 cheat guides',
+    latestTitle: 'MW4 cheat guides — Blog',
     latestSubtitle: 'Filter by topic or sort to find setup guides and playlist notes.',
     filterAll: 'All articles',
     sortLabel: 'Sort by',
@@ -666,7 +666,7 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About CheatsMW4',
+      title: 'About CheatsMW4 — Guides',
       description: 'CheatsMW4 publishes Modern Warfare 4 tier guides, utilities, and PC-focused support resources.',
       sections: [
         {
@@ -679,7 +679,7 @@ export const en: Translations = {
         {
           heading: 'What we publish',
           paragraphs: [
-            'Coverage includes Lite, Pro, Elite tiers, HWID spoofer utilities, UGC appeal tools, and Skin Changer preview workflows.',
+            'Coverage includes Lite, Pro, Elite tiers, HWID spoofer utilities, UGC appeal tools, and Skin Changer preview workflows. Each guide names the PC launcher it covers and what to check before a match.',
             'Guides update when Activision ships major patches or when Ricochet maintenance changes loader behavior.',
           ],
         },
@@ -704,7 +704,7 @@ export const en: Translations = {
         {
           heading: 'How we use data',
           paragraphs: [
-            'Analytics help us fix broken links and prioritize guides. Support emails are kept until your ticket is resolved unless law requires longer retention.',
+            'Analytics help us fix broken links and prioritize guides. Support emails are kept until your ticket is resolved unless law requires longer retention. Email the same address to ask for a copy or deletion of a support thread.',
           ],
         },
         {
