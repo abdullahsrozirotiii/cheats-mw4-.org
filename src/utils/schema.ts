@@ -116,25 +116,6 @@ export function itemListSchema(items: { name: string; url: string }[]) {
   };
 }
 
-export function discussionForumPostingSchema(input: {
-  name: string;
-  text: string;
-  url: string;
-  author: string;
-  comments: number;
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'DiscussionForumPosting',
-    headline: input.name,
-    articleBody: input.text,
-    url: canonicalUrl(input.url),
-    author: { '@type': 'Person', name: input.author },
-    commentCount: input.comments,
-    isPartOf: { '@type': 'CollectionPage', name: `${SITE_NAME} Community Forum`, url: canonicalUrl('/forum/') },
-  };
-}
-
 function offerUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   return canonicalUrl(path);
@@ -145,6 +126,7 @@ export function productSchema(input: {
   description: string;
   url: string;
   offerUrl: string;
+  price: string;
   image?: string;
   sku?: string;
 }) {
@@ -162,6 +144,7 @@ export function productSchema(input: {
     offers: {
       '@type': 'Offer',
       url: offerUrl(input.offerUrl),
+      price: input.price,
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       seller: {
@@ -170,23 +153,6 @@ export function productSchema(input: {
       },
     },
   };
-}
-
-/** @deprecated Prefer productSchema for product/cheat detail pages. */
-export function softwareApplicationSchema(input: {
-  name: string;
-  description: string;
-  url: string;
-  image?: string;
-  offerUrl?: string;
-}) {
-  return productSchema({
-    name: input.name,
-    description: input.description,
-    url: input.url,
-    offerUrl: input.offerUrl ?? input.url,
-    image: input.image,
-  });
 }
 
 export function articleSchema(input: {

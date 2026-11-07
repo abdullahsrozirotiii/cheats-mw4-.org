@@ -12,6 +12,6 @@ Use this checklist after the production site is live on `https://cheatsmw4.org`.
 | Modern Warfare 4 cheats (broad) | `/` |
 | MW4 Lite vs Pro | `/blog/mw4-lite-vs-pro/` |
 | Ricochet / patch checklist | `/blog/mw4-patch-day-checklist/` |
-| HWID / recovery | `/products/dota-2-cheats/hwid-spoofer/` |
+| HWID / recovery | `/products/mw4/hwid-spoofer/` |
 
 *Do not treat this table as keyword volume data—only Search Console or third-party tools with your login provide real metrics.*

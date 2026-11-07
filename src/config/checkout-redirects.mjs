@@ -10,9 +10,6 @@ export const CHECKOUT_URLS = {
 export const CHECKOUT_PATH_REDIRECTS = new Map([
   ['/go/mw4', CHECKOUT_URLS.mw4],
   ['/go/mw4/', CHECKOUT_URLS.mw4],
-  // Legacy slug from template — same MW4 checkout target
-  ['/go/dota-2', CHECKOUT_URLS.mw4],
-  ['/go/dota-2/', CHECKOUT_URLS.mw4],
   ['/go/skin-changer', CHECKOUT_URLS.skinChanger],
   ['/go/skin-changer/', CHECKOUT_URLS.skinChanger],
   ['/go/hwid-spoofer', CHECKOUT_URLS.hwidSpoofer],

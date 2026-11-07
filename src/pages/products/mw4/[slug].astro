@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllProductSlugs, getProductPage, productHub } from '../../../data/products';
 import { pageTitle } from '../../../config/seo';
 import { getPageSeoEntry } from '../../../config/pageSeo';
+import { checkoutUrlWithPlan, getProductPlans } from '../../../data/productPricing';
 import { breadcrumbSchema, productSchema } from '../../../utils/schema';
 import ProductDetail from '../../../components/ProductDetail.astro';
 
@@ -18,6 +19,7 @@ if (!product) {
 }
 
 const pagePath = `${productHub.path}${product.slug}/`;
+const defaultPlan = getProductPlans(product.slug)[0]!;
 const seoEntry = getPageSeoEntry(pagePath);
 const pageMetaTitle = seoEntry?.title ?? pageTitle(product.title);
 const pageMetaDescription = seoEntry?.description ?? product.desc;
@@ -36,7 +38,8 @@ const breadcrumbs = [
       name: product.title,
       description: product.desc,
       url: pagePath,
-      offerUrl: product.buyUrl,
+      offerUrl: checkoutUrlWithPlan(product.buyUrl, defaultPlan.id),
+      price: defaultPlan.priceUsd.toFixed(2),
       image: product.images[0]?.src,
       sku: product.slug,
     }),

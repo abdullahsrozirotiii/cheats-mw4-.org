@@ -2,8 +2,6 @@ import type { SitemapItem } from '@astrojs/sitemap';
 import { blogPosts } from '../data/blog';
 import { parseBlogDate } from '../utils/schema';
 
-const buildDate = new Date().toISOString();
-
 const blogLastmod = new Map(
   blogPosts.map((post) => [`/blog/${post.slug}/`, parseBlogDate(post.date)] as const),
 );
@@ -20,7 +18,7 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return undefined;
   }
 
-  item.lastmod = buildDate;
+  delete item.lastmod;
 
   if (path === '/') {
     item.priority = 1;
@@ -36,7 +34,7 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
 
   if (path === '/forum/') {
     item.priority = 0.8;
-    item.changefreq = 'daily';
+    item.changefreq = 'weekly';
     return item;
   }
 
@@ -49,7 +47,8 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
   if (path.startsWith('/blog/')) {
     item.priority = 0.7;
     item.changefreq = 'monthly';
-    item.lastmod = blogLastmod.get(path) ?? buildDate;
+    const published = blogLastmod.get(path);
+    if (published) item.lastmod = published;
     return item;
   }
 

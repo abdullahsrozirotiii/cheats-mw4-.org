@@ -62,7 +62,7 @@ export const en: Translations = {
         subtitle: 'See threats before they trade.',
         desc:
           'Player ESP, skeleton options, and distance readouts designed to stay readable when multiple operators contest one lane or building.',
-        bullets: ['Team filters and max distance caps', 'Loot and weapon highlights', 'Killstreak and vehicle cues where enabled'],
+        bullets: ['Team filters and max distance caps', 'Player and weapon highlights', 'Killstreak and vehicle cues where enabled'],
         tags: ['mw4 esp', 'wallhack', 'radar'],
         bento: 'sm:col-span-2 lg:col-span-8 lg:col-start-1 lg:row-start-2',
       },
@@ -397,7 +397,7 @@ export const en: Translations = {
         title: 'Crosshair color and FOV choices for long sessions',
         slug: 'mw4-crosshair-and-fov',
         image: '/images/blog-home/mw4-crosshair-and-fov.webp',
-        desc: 'Keep reticles visible on Ashika-style bright maps without scaling so large that recoil feels foreign.',
+        desc: 'Keep reticles visible on bright MW4 maps without scaling so large that recoil feels foreign.',
         date: 'Oct 28, 2025',
         readTime: '5 min read',
       },
@@ -639,7 +639,7 @@ export const en: Translations = {
       {
         num: '05',
         q: 'Where are MW4 products listed?',
-        a: 'MW4 Cheats (Lite • Pro • Elite) plus utilities live under /products/dota-2-cheats/ with feature lists and checkout links to our partner.',
+        a: 'MW4 Cheats (Lite, Pro, and Elite) plus the HWID, UGC, and Skin Changer utilities are on the products page, with feature lists and partner checkout.',
       },
       {
         num: '06',
@@ -653,8 +653,8 @@ export const en: Translations = {
     explore: 'Explore',
     exploreLinks: [
       { href: '/', label: 'Feature overview', ariaLabel: 'Features', scrollTarget: 'features' },
-      { href: '/products/dota-2-cheats/mw4-cheats/', label: 'MW4 Cheats', ariaLabel: 'MW4 Cheats Lite Pro Elite' },
-      { href: '/products/dota-2-cheats/', label: 'All products & utilities', ariaLabel: 'Products' },
+      { href: '/products/mw4/mw4-cheats/', label: 'MW4 Cheats', ariaLabel: 'MW4 Cheats Lite Pro Elite' },
+      { href: '/products/mw4/', label: 'All products & utilities', ariaLabel: 'Products' },
       { href: '/blog/', label: 'Read guides', ariaLabel: 'Blog' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
     ],

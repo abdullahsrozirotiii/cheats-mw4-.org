@@ -6,10 +6,21 @@ if (process.env.WORKERS_CI !== '1') {
   process.exit(0);
 }
 
+console.log('--- Cloudflare build start ---');
+console.log(`Node ${process.version}`);
+console.log('SEO origin is forced to https://cheatsmw4.org. workers.dev stays noindex.');
+console.log('Dashboard build command must stay empty. This install step runs npm run build, then deploy runs npx wrangler deploy.');
+
 const result = spawnSync('npm', ['run', 'build'], {
   stdio: 'inherit',
   shell: true,
   env: process.env,
 });
 
-process.exit(result.status ?? 1);
+if ((result.status ?? 1) !== 0) {
+  console.error('--- Cloudflare build failed: dist was not published ---');
+  process.exit(result.status ?? 1);
+}
+
+console.log('--- Cloudflare build finished: dist is ready for npx wrangler deploy ---');
+process.exit(0);

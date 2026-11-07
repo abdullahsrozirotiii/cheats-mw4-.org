@@ -5,22 +5,28 @@ import { loadEnv } from 'vite';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 const env = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
-const site = (process.env.PUBLIC_SITE_ORIGIN || env.PUBLIC_SITE_ORIGIN || 'https://cheatsmw4.org').replace(
-  /\/$/,
-  '',
-);
+const BRAND_ORIGIN = 'https://cheatsmw4.org';
+
+function siteOrigin(value) {
+  const trimmed = (value || BRAND_ORIGIN).trim().replace(/\/$/, '');
+  if (!trimmed || trimmed.includes('.workers.dev')) return BRAND_ORIGIN;
+  return trimmed;
+}
+
+const site = siteOrigin(process.env.PUBLIC_SITE_ORIGIN || env.PUBLIC_SITE_ORIGIN);
 
 export default defineConfig({
   site,
   trailingSlash: 'always',
   redirects: {
-    '/cheats/': '/products/dota-2-cheats/',
-    '/cheats/lite/': '/products/dota-2-cheats/mw4-cheats/',
-    '/cheats/pro/': '/products/dota-2-cheats/mw4-cheats/',
-    '/cheats/elite/': '/products/dota-2-cheats/mw4-cheats/',
-    '/products/dota-2-cheats/lite/': '/products/dota-2-cheats/mw4-cheats/',
-    '/products/dota-2-cheats/pro/': '/products/dota-2-cheats/mw4-cheats/',
-    '/products/dota-2-cheats/elite/': '/products/dota-2-cheats/mw4-cheats/',
+    '/cheats/': '/products/mw4/',
+    '/cheats/lite/': '/products/mw4/mw4-cheats/',
+    '/cheats/pro/': '/products/mw4/mw4-cheats/',
+    '/cheats/elite/': '/products/mw4/mw4-cheats/',
+    '/products/mw4/lite/': '/products/mw4/mw4-cheats/',
+    '/products/mw4/pro/': '/products/mw4/mw4-cheats/',
+    '/products/mw4/elite/': '/products/mw4/mw4-cheats/',
+    '/products/mw4/account-recovery/': '/products/mw4/ugc/',
     '/cheats/compare/': '/blog/mw4-lite-vs-pro/',
     '/contact/': '/support/',
   },

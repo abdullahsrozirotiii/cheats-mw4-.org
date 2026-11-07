@@ -2,8 +2,17 @@ import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
 import { getPageSeoEntry } from './pageSeo';
 
+const BRAND_ORIGIN = `https://${t.site.domain}`.replace(/\/$/, '');
 const configuredOrigin = import.meta.env.PUBLIC_SITE_ORIGIN as string | undefined;
-export const SITE_ORIGIN = (configuredOrigin || `https://${t.site.domain}`).replace(/\/$/, '');
+
+function productionOrigin(value: string | undefined): string {
+  const trimmed = (value || BRAND_ORIGIN).trim().replace(/\/$/, '');
+  if (!trimmed || trimmed.includes('.workers.dev')) return BRAND_ORIGIN;
+  return trimmed;
+}
+
+/** Brand domain only. A workers.dev preview host is never the canonical SEO host. */
+export const SITE_ORIGIN = productionOrigin(configuredOrigin);
 
 export const DEFAULT_OG_IMAGE = '/images/blog-home/hero-slide-mw4-main.webp';
 

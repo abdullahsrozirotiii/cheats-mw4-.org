@@ -14,32 +14,32 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     description:
       'MW4 cheats for PC with soft aim, player ESP, wallhack, 2D radar, triggerbot, and separate 6v6 or DMZ configs on supported builds.',
   },
-  '/products/dota-2-cheats/': {
+  '/products/mw4/': {
     title: 'MW4 Cheats & Utilities | Products — CheatsMW4',
     description:
       'Compare MW4 cheats (Lite, Pro, Elite) with the HWID spoofer, UGC appeals, and Skin Changer preview. Feature lists and partner checkout.',
   },
-  '/products/dota-2-cheats/mw4-cheats/': {
+  '/products/mw4/mw4-cheats/': {
     title: 'MW4 Cheats (Lite, Pro, Elite) | CheatsMW4',
     description:
       'Buy MW4 cheats for PC: Lite for ESP and radar, Pro for aim and recoil, Elite for the full stack plus Skin Changer preview.',
   },
-  '/products/dota-2-cheats/hwid-spoofer/': {
+  '/products/mw4/hwid-spoofer/': {
     title: 'MW4 HWID Spoofer | Hardware Recovery — CheatsMW4',
     description:
       'HWID spoofer for MW4 on PC when a hardware flag blocks new accounts. Restore-point steps and verification live in the portal.',
   },
-  '/products/dota-2-cheats/ugc/': {
+  '/products/mw4/ugc/': {
     title: 'MW4 UGC Appeals | Documentation — CheatsMW4',
     description:
       'UGC organizes MW4 account appeals and evidence timelines. It does not guarantee an unban—pair it with the HWID guide when hardware is flagged.',
   },
-  '/products/dota-2-cheats/unlock-all/': {
+  '/products/mw4/unlock-all/': {
     title: 'MW4 Skin Changer Preview | CheatsMW4',
     description:
       'Skin Changer for MW4 previews blueprints and operator skins locally. Other players usually still see your real unlocks.',
   },
-  '/products/dota-2-cheats/utilities/': {
+  '/products/mw4/utilities/': {
     title: 'MW4 Utilities | Spoofer, UGC, Skin Changer',
     description:
       'When to use each MW4 utility: hardware recovery, appeal paperwork, or local cosmetic preview—links to the full product pages.',

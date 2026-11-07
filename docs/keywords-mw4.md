@@ -13,9 +13,9 @@ This is a **qualitative** page map for search intent. It does **not** include se
 | Theme | Example phrases (not volume-ranked) | Primary URL |
 |-------|-------------------------------------|-------------|
 | Brand / site | cheatsmw4, cheatsmw4.org, MW4 tools site | `/` |
-| Tiers & comparison | MW4 Lite vs Pro, Elite tier, cheat tiers PC | `/products/dota-2-cheats/`, `/blog/mw4-lite-vs-pro/` |
+| Tiers & comparison | MW4 Lite vs Pro, Elite tier, cheat tiers PC | `/products/mw4/`, `/blog/mw4-lite-vs-pro/` |
 | Setup & safety | Ricochet patch day, undetected claims, ban risk | `/blog/mw4-patch-day-checklist/`, `/blog/mw4-undetected-claims/`, `/faq/` |
-| Utilities | HWID spoofer MW4, UGC recovery, skin changer | `/products/dota-2-cheats/hwid-spoofer/`, `/products/dota-2-cheats/ugc/`, `/products/dota-2-cheats/unlock-all/` |
+| Utilities | HWID spoofer MW4, UGC recovery, skin changer | `/products/mw4/hwid-spoofer/`, `/products/mw4/ugc/`, `/products/mw4/unlock-all/` |
 | Gameplay guides | loadouts, graphics settings, Warzone notes | `/blog/` (various slugs) |
 
 ## Supporting pages

@@ -70,7 +70,10 @@ function pageHtml({ target, pathname }) {
 
 fs.rmSync(publicGo, { recursive: true, force: true });
 
+const LEGACY_SLUGS = new Set(['dota-2']);
+
 for (const [slug, target] of bySlug) {
+  if (LEGACY_SLUGS.has(slug)) continue;
   const dir = path.join(publicGo, slug);
   fs.mkdirSync(dir, { recursive: true });
   const pathname = `/go/${slug}/`;

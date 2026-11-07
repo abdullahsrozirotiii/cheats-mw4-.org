@@ -78,7 +78,7 @@ export const productRelatedBlogSlugs: Record<string, string[]> = {
   'unlock-all': ['mw4-skin-changer-overview', 'mw4-cheat-client-worth-it', 'mw4-stream-overlay-setup'],
 };
 
-const productBase = '/products/dota-2-cheats/';
+const productBase = '/products/mw4/';
 
 const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
@@ -218,7 +218,7 @@ function slide(...keys: GalleryKey[]): ProductSlide[] {
 
 function slugFromHref(href: string): string {
   const segment = href.replace(productBase, '').replace(/^\//, '').replace(/\/$/, '');
-  return segment || 'dota-2-cheats';
+  return segment || 'mw4-cheats';
 }
 
 const mw4MergedAbout: ProductPage['about'] = [
@@ -261,7 +261,7 @@ const utilityBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'When you need it' },
     {
       type: 'p',
-      text: 'Use when new accounts fail instantly on one PC but work elsewhere—typical hardware enforcement. For account-only shadowbans without a hardware flag, review [UGC](/products/dota-2-cheats/ugc/) instead.',
+      text: 'Use when new accounts fail instantly on one PC but work elsewhere—typical hardware enforcement. For account-only shadowbans without a hardware flag, review [UGC](/products/mw4/ugc/) instead.',
     },
     { type: 'h2', text: 'Full workflow' },
     {
@@ -278,7 +278,7 @@ const utilityBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Realistic expectations' },
     {
       type: 'p',
-      text: 'Some enforcement actions cannot be undone. UGC helps you organize files and follow-ups for Activision or platform review. Pair with [HWID Spoofer](/products/dota-2-cheats/hwid-spoofer/) when hardware is flagged.',
+      text: 'Some enforcement actions cannot be undone. UGC helps you organize files and follow-ups for Activision or platform review. Pair with [HWID Spoofer](/products/mw4/hwid-spoofer/) when hardware is flagged.',
     },
   ],
   'unlock-all': [
@@ -348,7 +348,7 @@ const productContent: Record<
     overview: {
       title: 'Built around hardware recovery',
       paragraphs: [
-        'The HWID Spoofer helps when Activision or BattlEye-style enforcement flags your machine but you still need a clean identifier path. Tools ship with restore-point and verification steps.',
+        'The HWID Spoofer helps when Activision Ricochet flags your machine but you still need a clean identifier path. Tools ship with restore-point and verification steps.',
         'Use when fresh accounts fail on one rig but work elsewhere—not for every “Disconnected” message. Screenshots above are taken only from the SPOOFER product bundle.',
       ],
     },

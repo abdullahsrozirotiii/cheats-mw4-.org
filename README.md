@@ -25,6 +25,6 @@ Connect this GitHub repo in **Workers & Pages → Create → Import a repository
 | Deploy command | `npx wrangler deploy` |
 | Node | `22` (set build variable `NODE_VERSION` to `22`) |
 
-Each push to `main` then gets a build log in the Cloudflare dashboard under the Worker’s **Deployments** list. The GitHub Action in `.github/workflows/build.yml` also saves `build.log` for 90 days under the Actions run artifacts.
+Each push to `main` then gets a build log in the Cloudflare dashboard under the Worker’s **Deployments** list. The log must show `Cloudflare build start`, then `SEO host check passed`, then `dist is ready for npx wrangler deploy`. The GitHub Action in `.github/workflows/build.yml` also saves `build.log` for 90 days under the Actions run artifacts.
 
 Details: [docs/cloudflare-pages.md](docs/cloudflare-pages.md).

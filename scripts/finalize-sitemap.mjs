@@ -5,12 +5,17 @@ const root = process.cwd();
 const dist = path.join(root, 'dist');
 const source = path.join(dist, 'sitemap-0.xml');
 
+const BRAND_ORIGIN = 'https://cheatsmw4.org';
+
 function readOrigin() {
-  if (process.env.PUBLIC_SITE_ORIGIN) return process.env.PUBLIC_SITE_ORIGIN;
+  const fromEnv = process.env.PUBLIC_SITE_ORIGIN?.trim();
+  if (fromEnv && !fromEnv.includes('.workers.dev')) return fromEnv;
   const envFile = path.join(root, '.env.production');
-  if (!fs.existsSync(envFile)) return 'https://cheatsmw4.org';
+  if (!fs.existsSync(envFile)) return BRAND_ORIGIN;
   const match = fs.readFileSync(envFile, 'utf8').match(/^PUBLIC_SITE_ORIGIN=(.+)$/m);
-  return match?.[1]?.trim() || 'https://cheatsmw4.org';
+  const fromFile = match?.[1]?.trim() || '';
+  if (!fromFile || fromFile.includes('.workers.dev')) return BRAND_ORIGIN;
+  return fromFile;
 }
 
 const siteOrigin = readOrigin().replace(/\/$/, '');
@@ -52,7 +57,6 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>${siteOrigin}/sitemap.xml</loc>
-    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>
 `;

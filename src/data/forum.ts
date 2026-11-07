@@ -83,7 +83,7 @@ const additionalGuidePosts: ForumPost[] = [
         author: 'solo_q',
         age: '15 hours ago',
         score: 6,
-        body: 'When three lanes pinch I drop loot ESP entirely—callouts from sound carry harder there.',
+        body: 'When three lanes pinch I turn player ESP distance down—callouts from sound carry harder there.',
       },
     ],
   },

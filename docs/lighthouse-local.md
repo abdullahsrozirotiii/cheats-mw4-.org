@@ -9,8 +9,8 @@ Scores below are **category scores** (0–1 in JSON → shown as /100).
 | URL | Performance | Accessibility | Best practices | SEO |
 |-----|-------------|---------------|----------------|-----|
 | `/` | 55 | 95 | 100 | 100 |
-| `/products/dota-2-cheats/` | 71 | 100 | 100 | 100 |
-| `/products/dota-2-cheats/pro/` | 50 | 94 | 100 | 100 |
+| `/products/mw4/` | 71 | 100 | 100 | 100 |
+| `/products/mw4/pro/` | 50 | 94 | 100 | 100 |
 | `/blog/` | 42 | 96 | 100 | 100 |
 | `/blog/mw4-lite-vs-pro/` | 55 | 95 | 100 | 100 |
 

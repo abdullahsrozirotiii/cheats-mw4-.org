@@ -3,7 +3,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { resolvePathRedirect } from './redirects.mjs';
-import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
 const CANONICAL_HOST = 'cheatsmw4.org';
 const distDir = path.resolve('dist');
@@ -164,13 +163,6 @@ const server = http.createServer((req, res) => {
   }
 
   const { pathname, query, fragment } = splitUrl(req.url);
-  const checkoutRedirect = resolveCheckoutPathRedirect(pathname);
-  if (checkoutRedirect) {
-    res.writeHead(302, { Location: checkoutRedirect });
-    res.end();
-    return;
-  }
-
   const pathRedirect = resolvePathRedirect(pathname);
   if (pathRedirect) {
     res.writeHead(301, { Location: `${pathRedirect}${query}${fragment}` });

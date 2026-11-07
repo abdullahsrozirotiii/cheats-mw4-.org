@@ -1,6 +1,6 @@
 import type { BlogPostFull } from './types';
 
-const MW4_PRODUCT = '/products/dota-2-cheats/';
+const MW4_PRODUCT = '/products/mw4/';
 const GO_MW4 = '/go/mw4/';
 
 export const blogPosts: BlogPostFull[] = [
@@ -218,7 +218,7 @@ export const blogPosts: BlogPostFull[] = [
     body: [
       {
         type: 'p',
-        text: `Neon greens read well on Urzikstan-style sand; swap to magenta or cyan on snow. Static crosshair + dynamic center dot is a reliable default.`,
+        text: `Neon greens read well on desert maps; swap to magenta or cyan on snow. Static crosshair + dynamic center dot is a reliable default.`,
       },
     ],
   },
@@ -233,7 +233,7 @@ export const blogPosts: BlogPostFull[] = [
     body: [
       {
         type: 'p',
-        text: `Disable motion blur in competitive play. Prefer quality upscalers over ultra-shadow settings—shadow draw distance hits frametimes hard on ground war style maps.`,
+        text: `Disable motion blur in competitive play. Prefer quality upscalers over ultra-shadow settings—shadow draw distance hits frametimes hard on large MW4 maps.`,
       },
     ],
   },
@@ -322,7 +322,7 @@ export const blogPosts: BlogPostFull[] = [
       },
       {
         type: 'p',
-        text: `Read the [UGC appeal workflow](/products/dota-2-cheats/ugc/) when paperwork matters more than SATA serials.`,
+        text: `Read the [UGC appeal workflow](/products/mw4/ugc/) when paperwork matters more than SATA serials.`,
       },
     ],
   },

@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/icons/Icon.astro';
 import { forumPosts, getForumPost } from '../../data/forum';
 import { pageTitle } from '../../config/seo';
-import { breadcrumbSchema, discussionForumPostingSchema } from '../../utils/schema';
+import { breadcrumbSchema, webPageSchema } from '../../utils/schema';
 
 export function getStaticPaths() {
   return forumPosts.map((post) => ({ params: { slug: post.slug } }));
@@ -22,7 +22,7 @@ const relatedPosts = [
 ---
 
 <BaseLayout title={pageTitle(post.title)} description={post.excerpt} jsonLd={[
-  discussionForumPostingSchema({ name: post.title, text: post.body.join('\n\n'), url: path, author: post.author, comments: post.commentsCount }),
+  webPageSchema({ name: post.title, description: post.excerpt, url: path }),
   breadcrumbSchema(breadcrumbs),
 ]}>
   <section class="forum-page py-8 md:py-12">
@@ -48,7 +48,7 @@ const relatedPosts = [
                   <article class="forum-comment">
                     <div class="forum-comment__rail"><span class="forum-comment__avatar"><Icon name="userRound" size={14} /></span><span class="forum-comment__line"></span></div>
                     <div class="forum-comment__body"><div class="forum-comment__meta"><b>Guide answer</b></div><p>{comment.body}</p>
-                    {comment.replies?.map((reply) => <div class="forum-comment forum-comment--reply"><div class="forum-comment__rail"><span class="forum-comment__avatar">{reply.author.slice(0, 1).toUpperCase()}</span></div><div class="forum-comment__body"><div class="forum-comment__meta"><b>u/{reply.author}</b><span>·</span><span>{reply.age}</span></div><p>{reply.body}</p></div></div>)}
+                    {comment.replies?.map((reply) => <div class="forum-comment forum-comment--reply"><div class="forum-comment__rail"><span class="forum-comment__avatar">G</span></div><div class="forum-comment__body"><div class="forum-comment__meta"><b>Guide reply</b></div><p>{reply.body}</p></div></div>)}
                     </div>
                   </article>
                 ))}
