@@ -37,6 +37,7 @@ function pageHtml({ target, pathname }) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Checkout bridge for CheatsMW4. This page only opens the partner checkout and is not a product guide." />
   <meta name="color-scheme" content="dark" />
   <meta http-equiv="refresh" content="0;url=${safeTarget}" />
   <link rel="canonical" href="${safeTarget}" />
@@ -57,8 +58,9 @@ function pageHtml({ target, pathname }) {
 </head>
 <body>
   <main>
+    <h1 style="margin:0 0 0.75rem;font-size:1.25rem;text-align:center">Redirecting to checkout</h1>
     <p style="margin:0;font-size:0.95rem;text-align:center;max-width:28rem;line-height:1.5">
-      Redirecting to checkout…<br />
+      This page opens the partner checkout for the plan you selected on CheatsMW4.<br />
       <a href="${safeTarget}">Continue to partner site</a><br />
       <span style="font-size:0.8rem;opacity:0.75"><code>${safePath}</code></span>
     </p>

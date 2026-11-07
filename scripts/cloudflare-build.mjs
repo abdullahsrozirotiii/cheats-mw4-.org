@@ -8,7 +8,7 @@ if (process.env.WORKERS_CI !== '1') {
 
 console.log('--- Cloudflare build start ---');
 console.log(`Node ${process.version}`);
-console.log('SEO origin is forced to https://cheatsmw4.org. workers.dev stays noindex.');
+console.log('SEO origin is https://cheatsmw4.org. robots.txt allows crawling except /go/.');
 console.log('Dashboard build command must stay empty. This install step runs npm run build, then deploy runs npx wrangler deploy.');
 
 const result = spawnSync('npm', ['run', 'build'], {

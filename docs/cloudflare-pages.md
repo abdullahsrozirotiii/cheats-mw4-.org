@@ -18,9 +18,9 @@ Wrangler is a devDependency, so Workers Builds uses that version. Build output i
 
 Workers Builds installs dependencies and then runs only the deploy command. `postinstall` sees `WORKERS_CI=1` and runs `npm run build`, so `dist` exists before `npx wrangler deploy`. Leave the dashboard Build command empty. If it is also set to `npm run build`, the site is built twice.
 
-A good deploy log contains these lines, in order: `Cloudflare build start`, `SEO host check passed`, then `Cloudflare build finished: dist is ready for npx wrangler deploy`, then Wrangler's deploy output. The canonical host in that build is always `https://cheatsmw4.org`. `workers.dev` is noindex and is never written into canonical, sitemap, or robots.
+A good deploy log contains these lines, in order: `Cloudflare build start`, `SEO host check passed`, then `Cloudflare build finished: dist is ready for npx wrangler deploy`, then Wrangler's deploy output. Canonical, sitemap, and the robots Sitemap line stay on `https://cheatsmw4.org`. `robots.txt` allows crawling and only disallows `/go/`.
 
-Do not set `PUBLIC_SITE_ORIGIN` to a `workers.dev` URL. The build ignores that host. When the team attaches `cheatsmw4.org`, the same build is indexable on that domain.
+Do not set `PUBLIC_SITE_ORIGIN` to a `workers.dev` URL. The build ignores that host. When the team attaches `cheatsmw4.org`, that domain is the canonical host.
 
 After the first successful deploy, open the Worker → **Deployments**. Each later push to `main` adds a row with the full build log. Non-production branches get preview builds when preview builds are enabled.
 

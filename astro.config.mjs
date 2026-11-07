@@ -18,18 +18,8 @@ const site = siteOrigin(process.env.PUBLIC_SITE_ORIGIN || env.PUBLIC_SITE_ORIGIN
 export default defineConfig({
   site,
   trailingSlash: 'always',
-  redirects: {
-    '/cheats/': '/products/mw4/',
-    '/cheats/lite/': '/products/mw4/mw4-cheats/',
-    '/cheats/pro/': '/products/mw4/mw4-cheats/',
-    '/cheats/elite/': '/products/mw4/mw4-cheats/',
-    '/products/mw4/lite/': '/products/mw4/mw4-cheats/',
-    '/products/mw4/pro/': '/products/mw4/mw4-cheats/',
-    '/products/mw4/elite/': '/products/mw4/mw4-cheats/',
-    '/products/mw4/account-recovery/': '/products/mw4/ugc/',
-    '/cheats/compare/': '/blog/mw4-lite-vs-pro/',
-    '/contact/': '/support/',
-  },
+  // Legacy paths 301 from public/_redirects. Do not emit Astro HTML stubs:
+  // those stubs were noindex, had no H1, and had no meta description.
   compressHTML: true,
   prefetch: {
     prefetchAll: false,

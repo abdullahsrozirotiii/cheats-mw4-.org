@@ -42,7 +42,12 @@ reject('sitemap still lists dota-2-cheats', sitemap.includes('dota-2-cheats'));
 reject('sitemap marks the forum daily', sitemap.includes('<changefreq>daily</changefreq>'));
 reject('Cloudflare redirect file is missing the old product path', !redirects.includes('/products/dota-2-cheats/ /products/mw4/ 301'));
 reject('product schema is missing the monthly price', !product.includes('"price":"35.00"') && !product.includes('"price": "35.00"'));
-reject('UGC schema is missing the one-time price', !ugc.includes('"price":"50.00"') && !ugc.includes('"price": "50.00"'));
+reject('UGC schema is missing the monthly price', !ugc.includes('"price":"35.00"') && !ugc.includes('"price": "35.00"'));
+reject('UGC page is missing the lifetime price', !ugc.includes('$150'));
+reject('UGC page is missing the monthly price', !ugc.includes('$35'));
+reject('robots.txt blocks the whole site', /^Disallow:\s*\/\s*$/m.test(robots));
+reject('legacy redirect stub is still a noindex HTML page', fs.existsSync(path.join(dist, 'cheats', 'index.html')));
+reject('homepage is noindex', /name="robots" content="noindex/.test(home));
 reject('forum page still emits DiscussionForumPosting', forum.includes('DiscussionForumPosting'));
 reject('checkout page is indexable', !goPage.includes('noindex, nofollow'));
 reject('legacy checkout page was still generated', fs.existsSync(path.join(dist, 'go', 'dota-2', 'index.html')));
@@ -54,4 +59,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`SEO host check passed: canonical, sitemap, and robots use ${origin}. Preview indexing is blocked in workers/seo-host.js.`);
+console.log(`SEO host check passed: canonical, sitemap, and robots use ${origin}. Pages are indexable. /go/ stays noindex.`);
